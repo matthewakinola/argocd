@@ -25,12 +25,12 @@ spec:
           - name: MYSQL_DATABASE
             value: socksdb
         resources:
-          requests:
-            memory: "150m"
-            cpu: "100m"
           limits:
-            memory: "300m"
-            cpu: "200m"
+            cpu: "100m"
+            memory: "200Mi"
+          requests:
+            cpu: "50m"
+            memory: "100Mi"
         ports:
         - name: mysql
           containerPort: 3306
