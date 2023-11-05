@@ -40,10 +40,10 @@ spec:
             name: tmp-volume
           resources:
             requests:
-              memory: "300m"
-              cpu: "250m"
-            limits:
-              memory: "200m"
+              memory: "150m"
               cpu: "100m"
+            limits:
+              memory: "300m"
+              cpu: "200m"
       nodeSelector:
         kubernetes.io/os: linux

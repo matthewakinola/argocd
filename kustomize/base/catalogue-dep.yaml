@@ -23,12 +23,12 @@ spec:
         args:
         - -port=80
         resources:
-          limits:
-            cpu: 300m
-            memory: 200m
           requests:
-            cpu: 200m
-            memory: 100m
+            memory: "150m"
+            cpu: "100m"
+          limits:
+            memory: "300m"
+            cpu: "200m"
         ports:
         - containerPort: 80
         securityContext:

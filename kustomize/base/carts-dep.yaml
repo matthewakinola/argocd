@@ -27,12 +27,12 @@ spec:
          - name: JAVA_OPTS
            value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
         resources:
-          limits:
-            cpu: 300m
-            memory: 200m
           requests:
-            cpu: 200m
-            memory: 100m
+            memory: "150m"
+            cpu: "100m"
+          limits:
+            memory: "300m"
+            cpu: "200m"
         ports:
         - containerPort: 80
         securityContext:
