@@ -24,8 +24,8 @@ spec:
         - -port=80
         resources:
           limits:
-            cpu: 500m
-            memory: 300m
+            cpu: 300m
+            memory: 200m
           requests:
             cpu: 200m
             memory: 100m
