@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app
+  labels:
+    app: django
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deployment.app}}
+      tier: {{ .Values.deployment.tier}}
+  strategy:
+    {{- toYaml .Values.deployment.strategy | nindent 12 }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deployment.template.app}}
+        tier: {{ .Values.deployment.template.tier}}
+    spec:
+      containers:
+        - name: django-image
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}"
+          ports:
+            - name: {{ .Values.deployment.containers.ports.name}}
+              containerPort: {{ .Values.deployment.containers.ports.containerPort}}
+              protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     path: /healthcheck
+          #     port: 8000
+          # readinessProbe:
+          #   httpGet:
+          #     path: /healthcheck
+          #     port: 8000
+          resources:
+            {{- toYaml .Values.deployment.containers.resources | nindent 12 }}
+          env:
+            {{- toYaml .Values.deployment.env | nindent 12 }}
+          # imagePullSecrets:
+          #   - name : {{ .Values.imagePullSecrets.name }}
+
+          volumes:
+            - name: {{ .Values.volumes.name }}
+              persistentVolumeClaim: 
+                claimName: {{ .Values.volumes.claimName }}
+          serviceAccountName: {{ .Values.serviceAccount.name }}
+      
+          volumeMounts:
+            - name: {{ .Values.volumes.name }}
+              mountPath: {{ .Values.volumeMounts.mountPath }}

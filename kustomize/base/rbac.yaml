@@ -1,0 +1,48 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: admin-clusterrole
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps"]
+    verbs: ["get", "list", "create", "update", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-clusterrolebinding
+subjects:
+  - kind: ServiceAccount
+    name: admin-serviceaccount
+    apiGroup: ""
+    namespace: sock-shop
+roleRef:
+  kind: ClusterRole
+  name: admin-clusterrole
+  apiGroup: rbac.authorization.k8s.io
+---
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: ClusterRole
+# metadata:
+#   name: read-only-user
+# rules:
+# - apiGroups: [""]
+#   resources: ["*"]
+#   verbs:
+#   - get
+#   - list
+#   - watch
+# ---
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: ClusterRoleBinding
+# metadata:
+#   name: read-only-binding
+# subjects:
+# - kind: ServiceAccount
+#   name: read-only-user
+#   apiGroup: ""
+#   namespace: sock-shop
+# roleRef:
+#   kind: ClusterRole
+#   name: read-only-clusterrole
+#   apiGroup: rbac.authorization.k8s.io

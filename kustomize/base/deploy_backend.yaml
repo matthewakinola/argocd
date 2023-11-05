@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-backend
+  labels:
+    name: django-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: django-backend
+  template:
+    metadata:
+      labels:
+        app: django-backend
+    spec:
+      containers:
+        - name: django-backend
+          image: techmatt/k8s:latest
+          imagePullPolicy: Always
+          ports:
+            - name: backend-port
+              containerPort: 5000
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 800Mi
+              memory: 500Mi
+            requests:
+              cpu: 400Mi
+              memory: 200Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: django-backend
+spec:
+    selector:
+        app: django-backend
+    ports:
+        - protocol: TCP
+          port: 5000
+          targetPort: 5000

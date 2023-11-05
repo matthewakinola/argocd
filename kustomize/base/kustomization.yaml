@@ -1,0 +1,25 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: arbitrary
+resources:
+- admin-user-svca.yaml
+- carts-db-dep.yaml
+- carts-db-svc.yaml
+- carts-dep.yaml
+- carts-svc.yaml
+- catalogue-db-dep.yaml
+- catalogue-db-svc.yaml
+- catalogue-dep.yaml
+- catalogue-svc.yaml
+- deploy_backend.yaml
+- front-end-dep.yaml
+- jaeger-rbac.yaml
+- jaeger-backend.yaml
+- jaeger-frontend.yaml
+- front-end-svc.yaml
+- hpa.yaml
+- rbac.yaml
+- read-only-user-svca.yaml
+- sock-shop-ns.yaml

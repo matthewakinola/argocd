@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carts
+  namespace: sock-shop
+  spec:
+  template:
+    spec:
+      containers:
+      - name: carts
+        resources:
+          limits:
+            cpu: "300m"
+            memory: "600Mi"
+          requests:
+            cpu: "100m"
+            memory: "300Mi"

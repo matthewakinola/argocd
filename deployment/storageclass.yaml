@@ -1,0 +1,7 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: local-storage  
+  namespace: local
+provisioner: kubernetes.io/no-provisioner  # This indicates manual provisioning
+volumeBindingMode: WaitForFirstConsumer  # Wait for a PVC to be created before binding to a PV

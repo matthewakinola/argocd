@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaeger-frontend
+  namespace: sock-shop
+  labels:
+    name: jaeger-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jaeger-frontend
+  template:
+    metadata:
+      labels:
+        app: jaeger-frontend
+    spec:
+      containers:
+        - name: jaeger-frontend
+          image: techmatt/k8s-frontend:v1
+          imagePullPolicy: Always
+          env:
+            - name: COUNTER_ENDPOINT
+              value: "http://do-visit-counter-backend.default.svc.cluster.local:5000"
+          ports:
+            - name: frontend-port
+              containerPort: 8000
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 300m
+              memory: 1000Mi
+            requests:
+              cpu: 100m
+              memory: 300Mi

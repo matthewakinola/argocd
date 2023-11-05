@@ -1,0 +1,8 @@
+*.terraform
+*terraform.tfstate
+*terraform.tfstate.backup
+*.terraform.lock.hcl
+*.terraform.tfstate.lock.info
+*variables.tf
+*config.yaml
+*secret.yaml

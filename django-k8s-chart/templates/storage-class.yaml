@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: {{.Values.storageClass.name}}
+provisioner: {{.Values.storageClass.provisioner}}
+parameters:
+  provisioningMode: {{.Values.storageClass.parameters.provisioningMode}}
+  # filesystemId: {{.Values.storageClass.parameters.filesystemId}}
+  directoryPerms: {{.Values.storageClass.parameters.directoryPerms}}
+  basePath: {{.Values.storageClass.parameters.basePath}}

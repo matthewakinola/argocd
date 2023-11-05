@@ -1,0 +1,10 @@
+{{- if .Values.persistentVolume.enabled -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.persistentVolumeClaim.name}}
+  labels:
+    {{- toYaml .Values.persistentVolumeClaim.labels | nindent 8 }}
+spec:
+  {{- toYaml .Values.persistentVolume.spec | nindent 12 }}
+{{- end }}

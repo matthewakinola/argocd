@@ -1,0 +1,13 @@
+{{- if .Values.persistentVolume.enabled -}}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.persistentVolume.name }}
+  namespace: {{ .Values.persistentVolume.namespace}}
+  labels:
+    type: local
+spec:
+  {{- toYaml .Values.persistentVolume.spec | nindent 12 }}
+
+{{- end }}
+
