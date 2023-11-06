@@ -9,9 +9,9 @@ resources:
 - carts-db-svc.yaml
 - carts-dep.yaml
 - carts-svc.yaml
-- catalogue-db-dep.yaml
+# - catalogue-db-dep.yaml
 - catalogue-db-svc.yaml
-- catalogue-dep.yaml
+# - catalogue-dep.yaml
 - catalogue-svc.yaml
 - deploy_backend.yaml
 - front-end-dep.yaml

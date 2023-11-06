@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: django-backend
-          image: techmatt/k8s:latest
+          image: huzzy619/talknaw-auth:v1
           imagePullPolicy: Always
           ports:
             - name: backend-port
