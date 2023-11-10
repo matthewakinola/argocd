@@ -39,3 +39,19 @@ argocd app history <appname> #Get information about an Argo CD application.
 argocd app rollback <appname> #Rollback to a previous version
 argocd app set <appname> #Set the application’s configuration.
 argocd app delete <appname> #Delete an Argo CD application.
+
+#PROMTAIL INSTALLATION FOR GRAFANA LOKI
+kubectl create ns monitoring
+helm repo update
+helm upgrade --install prom prometheus-community/kube-prometheus-stack -n monitoring --values ./kustomize/base/prom-values.yaml
+helm repo add grafana https://grafana.github.io/helm-charts
+helm upgrade --install promtail grafana/promtail -f ./kustomize/base/promtail-values.yaml -n monitoring
+helm upgrade --install loki grafana/loki-distributed -n monitoring
+helm repo add aqua https://aquasecurity.github.io/helm-charts/
+helm repo update
+helm upgrade --install trivy-operator aqua/trivy-operator \
+  --namespace trivy-system \
+  --create-namespace \
+  --values ./kustomize/base/trivy-values.yaml \
+  --version 0.18.0
+  kubectl port-forward service/prom-grafana -n monitoring 3000:80

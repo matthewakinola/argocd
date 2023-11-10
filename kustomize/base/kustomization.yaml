@@ -9,6 +9,7 @@ resources:
 - carts-db-svc.yaml
 - carts-dep.yaml
 - carts-svc.yaml
+- trivy-service-monitor.yaml
 # - catalogue-db-dep.yaml
 - catalogue-db-svc.yaml
 # - catalogue-dep.yaml
@@ -16,8 +17,8 @@ resources:
 - deploy_backend.yaml
 - front-end-dep.yaml
 - jaeger-rbac.yaml
-- jaeger-backend.yaml
-- jaeger-frontend.yaml
+# - jaeger-backend.yaml
+# - jaeger-frontend.yaml
 - front-end-svc.yaml
 - hpa.yaml
 - rbac.yaml

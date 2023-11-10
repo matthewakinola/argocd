@@ -6,3 +6,5 @@
 *variables.tf
 *config.yaml
 *secret.yaml
+*generated_values.yaml
+*robusta
