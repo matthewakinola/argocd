@@ -55,3 +55,6 @@ helm upgrade --install trivy-operator aqua/trivy-operator \
   --values ./kustomize/base/trivy-values.yaml \
   --version 0.18.0
   kubectl port-forward service/prom-grafana -n monitoring 3000:80
+
+#robusta
+helm upgrade robusta robusta/robusta --values ./generated_values.yaml --set clusterName=<YOUR_CLUSTER_NAME>
