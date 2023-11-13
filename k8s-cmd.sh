@@ -57,4 +57,7 @@ helm upgrade --install trivy-operator aqua/trivy-operator \
   kubectl port-forward service/prom-grafana -n monitoring 3000:80
 
 #robusta
+https://docs.robusta.dev/master/setup-robusta/installation/index.html #robusta installation URL
+https://github.com/robusta-dev #robusta github to try out some alerts checkout
+helm install robusta robusta/robusta -f ./generated_values.yaml --set clusterName=<YOUR_CLUSTER_NAME>
 helm upgrade robusta robusta/robusta --values ./generated_values.yaml --set clusterName=<YOUR_CLUSTER_NAME>

@@ -1,5 +1,0 @@
-customPlaybooks:
-- triggers:
-  - on_k8s_event: {}
-- actions:
-  - dashboard: {}

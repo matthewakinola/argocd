@@ -7,4 +7,5 @@
 *config.yaml
 *secret.yaml
 *generated_values.yaml
+*degenerated_values.yaml
 *robusta
