@@ -15,7 +15,7 @@ target_location = path
 
 for folder in folders:
     images = subprocess.check_output(
-        [ "gcrane","ls", f"{source_location}/{folder}"], 
+        [ "gcrane","ls", f"{folder}"], 
         text=True
         ).splitlines()
     
