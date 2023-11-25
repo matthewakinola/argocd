@@ -61,3 +61,12 @@ https://docs.robusta.dev/master/setup-robusta/installation/index.html #robusta i
 https://github.com/robusta-dev #robusta github to try out some alerts checkout
 helm install robusta robusta/robusta -f ./generated_values.yaml --set clusterName=<YOUR_CLUSTER_NAME>
 helm upgrade robusta robusta/robusta --values ./generated_values.yaml --set clusterName=<YOUR_CLUSTER_NAME>
+
+
+#gcr with gcloud
+gcloud init
+gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin eu.gcr.io/admin-roava-io/roava.io/services/accounts
+
+gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin <repo>
+
+brew services start postgresql@15

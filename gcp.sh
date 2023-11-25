@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variable for Python script path
-PYTHON_SCRIPT_PATH=""
+PYTHON_SCRIPT_PATH="./gcp.py"
 
 #Step 1: Install Go if not installed
 echo "Checking if Go is installed..."
